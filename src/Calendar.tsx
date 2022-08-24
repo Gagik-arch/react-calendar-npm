@@ -2,9 +2,8 @@ import { useState, useMemo, useLayoutEffect, FC } from "react";
 import s from "./calendar.module.css";
 import { Icon } from "./core";
 import { Block } from "./components";
-import C, { CalendarI } from './calendar/index'
+import C, { CalendarI } from 'calendar-npm'
 import { NavigationRenderI} from './interfaces'
-
 
 interface IProps {
     date?: Date;
@@ -41,8 +40,9 @@ const Calendar: FC<IProps> = ({
             return new C(_dates);
         });
     }, []);
-
+  
     useLayoutEffect(() => {
+    
         onChange(calendars.map((e) => e.selectedDate));
     }, []);
 

@@ -7,12 +7,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const c:CalendarI = new C()
+const c = new C()
 
 root.render(
     // <Calendar />
   <div onClick={() => {
-    console.log(c.toNextMonth())
+    c.toNextMonth()
+    console.log(c)
   }}>
 asd
   </div>
