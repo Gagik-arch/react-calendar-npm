@@ -1,0 +1,55 @@
+.days {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-gap: 4px 0;
+}
+.day {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    transition: all 260ms ease;
+    padding: 6px 16px;
+}
+.selected-day {
+    background-color: #10b981;
+    color: white;
+    border-radius: 10px;
+}
+
+.selected-day:hover {
+    background-color: #10b98159;
+}
+
+.selected-range {
+    background-color: #e2e8f0;
+}
+
+.selected_day_1 {
+    border-radius: 10px 0 0 10px;
+    background-color: #10b981;
+}
+
+.selected_day_2 {
+    border-radius: 0 10px 10px 0;
+    background-color: #10b981;
+}
+
+.selected_day_1,
+.selected_day_2 {
+    color: white;
+}
+
+.current-month:hover {
+    background-color: #10b98159;
+}
+
+.selected-rang:hover {
+    border-radius: 0;
+}
+.prev-month,
+.next-month {
+    color: #cbd5e1;
+}

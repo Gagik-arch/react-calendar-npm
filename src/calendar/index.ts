@@ -1,6 +1,6 @@
-import { DayI, CalendarI } from "./interfaces";
+import { IDay, ICalendar } from "./interfaces";
 
-class Calendar implements CalendarI {
+class Calendar implements ICalendar {
     public weekDays = [
         "Sunday",
         "Monday",
@@ -25,10 +25,10 @@ class Calendar implements CalendarI {
         "December",
     ];
     public currentDate: Date;
-    public days: DayI[];
+    public days: IDay[];
     public selectedDate: Date;
     public range: Date[] = [];
-    private counter: number = 0;
+    private _counter: number = 0;
 
     constructor(date: Date = new Date()) {
         this.currentDate = new Date();
@@ -43,7 +43,8 @@ class Calendar implements CalendarI {
         const _firstDayOfWeek: number = this.getFirstDayOfWeek(month + 1, year);
         const _currentMonthDayCount: number = this.daysInMonth(month + 1, year);
         const _prevMonthDayCount: number = this.daysInMonth(month, year);
-        const array: DayI[] = [];
+        const array: IDay[] = [];
+        // console.log(this);
 
         if (_firstDayOfWeek > 0) {
             let p = _prevMonthDayCount - _firstDayOfWeek + 1,
@@ -162,7 +163,7 @@ class Calendar implements CalendarI {
 
     private createRange(selectedRange: Date) {
         this.range = [this.selectedDate];
-        if (this.counter % 2 === 0) {
+        if (this._counter % 2 === 0) {
             this.range.push(selectedRange);
         } else {
             this.range.push(selectedRange);
@@ -171,7 +172,7 @@ class Calendar implements CalendarI {
         this.range = this.range?.sort(
             (a: Date, b: Date) => a.getTime() - b.getTime()
         );
-        this.counter++;
+        this._counter++;
     }
 }
 class Day {
@@ -186,5 +187,5 @@ class Day {
     }
 }
 
-export type { CalendarI, DayI };
+export type { ICalendar, IDay };
 export default Calendar;

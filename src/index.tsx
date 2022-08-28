@@ -1,21 +1,19 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-// import Calendar from './Calendar'
-import C, { CalendarI } from './calendar/index'
+import Calendar from './Calendar'
+import './index.css'
+import C from './calendar/index';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const c = new C()
-
 root.render(
-    // <Calendar />
   <div onClick={() => {
-    c.toNextMonth()
-    console.log(c)
-  }}>
-asd
-  </div>
+    const a = new C(new Date('2022, 08, 1'));
+    console.log(a)
+  }}>click</div>
+  // <Calendar calendarCounts={1}
+
+  // />
 );
 

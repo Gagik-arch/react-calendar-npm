@@ -1,6 +1,5 @@
 import { FC } from 'react'
-import * as I from '../../assets'
-
+import * as I from '../../assets/icons'
 interface IProps {
     type: string
     fill?: string
@@ -8,43 +7,39 @@ interface IProps {
     size?: number
     className?: string
 }
-interface AssetParam {
-    name: string,
-    value: JSX.Element
-}
+
 export const Icon: FC<IProps> = ({
     type ,
     fill,
-    color,
+    color = '#94a3b8',
     size = 18,
     className = '',
     ...props
 }): JSX.Element  => {
     type = type.charAt(0).toUpperCase() + type.slice(1)
 
-    if (!type) {
+    if (!type || !I[type]) {
         console.log('invalid <Icon/> type')
-        return <span>invalid {`<Icon/>`} type</span>
+        return <>invalid {`<Icon/>`} type</>
     }
-    return <div></div>
-    // const Custom =Object.is(I,I) && I.hasOwnProperty(type) && I[type as keyof AssetParam]
+    const Custom = I[type]
 
-    // if (fill) {
-    //     return <Custom className={className}
-    //         width={size}
-    //         height={size}
-    //         fill={fill}
-    //         stroke={color}
-    //         {...props}
-    //     />
-    // }
+    if (fill) {
+        return <Custom className={className}
+            width={size}
+            height={size}
+            fill={fill}
+            stroke={color}
+            {...props}
+        />
+    }
 
-    // return <Custom className={className}
-    //     width={size}
-    //     height={size}
-    //     stroke={color}
-    //     {...props}
-    // />
+    return <Custom className={className}
+        width={size}
+        height={size}
+        stroke={color}
+        {...props}
+    />
 
 }
 

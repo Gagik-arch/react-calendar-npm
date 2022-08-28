@@ -1,20 +1,21 @@
-import {FC,useState} from "react";
+import {FC,useState,ReactNode} from "react";
 import s from './block.module.css'
-import { CalendarI } from "calendar-npm";
-import { NavigationRenderI } from '../../interfaces'
+import { ICalendar } from "../../calendar/interfaces";
+import { IDayRender, INavigationRender } from '../../interfaces'
 import { Icon } from "../../core";
+import { Days } from '../../components'
 
-export interface IProps {
-    calendar: CalendarI;
+ interface IProps {
+    calendar: ICalendar;
     onChange?: Function;
     index: number;
-    renderWeekDays: () => void
-    // renderNavigation: (object:NavigationRenderI) => JSX.Element;
-    // renderDays: () => JSX.Element;
+    renderWeekDays?(options:string[]): ReactNode ;
+    renderNavigation?(options:INavigationRender): React.ReactNode;
+    renderDays?(options:IDayRender): React.ReactNode;
     calendarCounts: number;
     disablePrevNextDates: boolean;
-    range?: Date[];
-    calendars:CalendarI[]
+    range?: boolean;
+    calendars:ICalendar[]
 }
 
 export const Block: FC<IProps> = ({
@@ -22,11 +23,11 @@ export const Block: FC<IProps> = ({
     calendar,
     index,
     renderWeekDays,
-    // renderNavigation,
-    // renderDays,
+    renderNavigation,
+    renderDays,
     calendarCounts,
     disablePrevNextDates,
-    range,
+    range=false,
 }) => {
     const [rerender, setRerender] = useState<boolean>(false);
 
@@ -36,18 +37,30 @@ export const Block: FC<IProps> = ({
     };
 
     return (
-        <div>
-           {/* {renderNavigation ? (
+        <div >
+           {renderNavigation ? (
                renderNavigation({
                    selectedDate: calendar?.selectedDate,
                    currentDate: calendar.currentDate,
                    months: calendar.months,
                    weekDays: calendar.weekDays,
                    events: {
-                       toNextMonth: () => calendar.toNextMonth(),
-                       toPrevMonth: () => calendar.toPrevMonth(),
-                       toNextYear: () => calendar.toNextYear(),
-                       toPrevYear: () => calendar.toPrevYear(),
+                       toNextMonth: () => {
+                           calendar.toNextMonth()
+                           setRerender(!rerender)
+                       },
+                       toPrevMonth: () => {
+                           calendar.toPrevMonth()
+                           setRerender(!rerender)
+                       },
+                       toNextYear: () => {
+                           calendar.toNextYear()
+                           setRerender(!rerender)
+                       },
+                       toPrevYear: () => {
+                           calendar.toPrevYear()
+                           setRerender(!rerender)
+                       },
                        toDate: (date:Date) => calendar.toDate(date),
                    },
                })
@@ -55,7 +68,7 @@ export const Block: FC<IProps> = ({
                <div className={s.navigation}>
                    <button
                        onClick={() => {
-                        //    calendar?.toPrevYear();
+                           calendar?.toPrevYear();
                            onChangeCalendar();
                        }}
                    >
@@ -63,18 +76,18 @@ export const Block: FC<IProps> = ({
                    </button>
                    <button
                        onClick={() => {
-                            // calendar?.toPrevMonth();
+                            calendar?.toPrevMonth();
                             onChangeCalendar();
                         }}
                     >
-                        <Icon type={"ChevronLeft"} />
+                            <Icon type={"ChevronLeft"} />
                     </button>
                     {calendar?.selectedDate?.toString().split(" ")[3] +
-                        " : " +
+                        "  " +
                         calendar?.selectedDate?.toString().split(" ")[1]}
                     <button
                         onClick={() => {
-                            // calendar?.toNextMonth();
+                            calendar?.toNextMonth();
                             onChangeCalendar();
                         }}
                     >
@@ -82,7 +95,7 @@ export const Block: FC<IProps> = ({
                     </button>
                     <button
                         onClick={() => {
-                            // calendar?.toNextYear();
+                            calendar?.toNextYear();
                             onChangeCalendar();
                         }}
                     >
@@ -91,7 +104,7 @@ export const Block: FC<IProps> = ({
                 </div>
             )}
             {renderWeekDays ? (
-               renderWeekDays()// renderWeekDays(calendar.weekDays)
+                renderWeekDays(calendar.weekDays)
             ) : (
                 <div className={s.weeks}>
                     {calendar?.weekDays?.map((day, i) => {
@@ -102,18 +115,18 @@ export const Block: FC<IProps> = ({
                         );
                     })}
                 </div>
-            )} */}
-            {/* {
-                <Days
-                    calendar={calendar}
-                    range={range}
-                    calendarCounts={calendarCounts}
-                    renderDays={renderDays}
-                    index={index}
-                    onChange={onChangeCalendar}
-                    disablePrevNextDates={disablePrevNextDates}
-                />
-            } */}
+            )}
+       {
+              
+                    <Days calendar={calendar}
+                        range={range}
+                        calendarCounts={calendarCounts}
+                        index={index}
+                        onChange={onChangeCalendar}
+                        disablePrevNextDates={disablePrevNextDates}
+                        renderDays={ renderDays}
+                    />
+            }
         </div>
     );
 };

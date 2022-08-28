@@ -1,13 +1,20 @@
-export interface NavigationRenderI {
+import { DayI } from "calendar-npm";
+export interface INavigationRender {
     selectedDate: Date;
     currentDate: Date;
     months: string[];
     weekDays: string[];
-    events: {
-        toNextMonth: () => () => void;
-        toPrevMonth: () => () => void;
-        toNextYear: () => () => void;
-        toPrevYear: () => () => void;
-        toDate: (date: Date) => (date: Date) => void;
-    };
+    events: Events;
+}
+export interface IDayRender extends DayI {
+    onClick(): void;
+    defaultStyles: string;
+    key: number;
+}
+export interface Events {
+    toNextMonth: () => void;
+    toPrevMonth: () => void;
+    toNextYear: () => void;
+    toPrevYear: () => void;
+    toDate: (date: Date) => void;
 }

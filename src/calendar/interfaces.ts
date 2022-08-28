@@ -1,13 +1,13 @@
-export interface DayI {
+export interface IDay {
     date: Date;
     label: number | string;
     status: string;
 }
 
-export interface CalendarI {
+export interface ICalendar {
     currentDate: Date;
     selectedDate: Date;
-    days: DayI[];
+    days: IDay[];
     months: string[];
     weekDays: string[];
     range: Date[];
@@ -15,5 +15,5 @@ export interface CalendarI {
     toPrevMonth(): void;
     toNextYear(): void;
     toPrevYear(): void;
-    toDate(date: Date, selectedRange: Date): void;
+    toDate(date: Date, selectedRange?: Date): void;
 }
