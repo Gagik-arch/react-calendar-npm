@@ -1,7 +1,11 @@
 {
   "name": "react-calendar-npm",
   "version": "0.1.0",
-  "private": true,
+  "keywords": [
+    "react",
+    "calendar",
+    "react calendar"
+  ],
   "dependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.51",
@@ -37,5 +41,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project is intended to be consumed for React project based on calendar-npm package. It is easy customizable",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gagik-arch/react-calendar-npm.git"
+  },
+  "author": "Gagik-arch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gagik-arch/react-calendar-npm/issues"
+  },
+  "homepage": "https://github.com/Gagik-arch/react-calendar-npm#readme"
 }
