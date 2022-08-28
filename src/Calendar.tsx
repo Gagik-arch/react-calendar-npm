@@ -1,9 +1,9 @@
 import { ReactNode, useMemo, useLayoutEffect, FC } from "react";
 import s from "./calendar.module.css";
 import { Block } from "./components";
-// import C from './calendar/index'
-// import { ICalendar } from "./calendar/interfaces";
-import C, {ICalendar} from 'calendar-npm'
+import C from './calendar/index'
+import { ICalendar } from "./calendar/interfaces";
+// import C, {ICalendar} from 'calendar-npm'
 import { IDayRender, INavigationRender} from './interfaces'
 
 interface IProps {

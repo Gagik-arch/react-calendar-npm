@@ -76,7 +76,7 @@ const calendar: ICalendar = new Calendar();
 
 ## Built With
 
--   Gagik-arch
+-   Gagik Chilingaryan (Gagik-arch)
 
 ## Author
 

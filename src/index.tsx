@@ -7,8 +7,6 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <Calendar calendarCounts={2}
-    range={ true}
-  />
+  <Calendar />
 );
 

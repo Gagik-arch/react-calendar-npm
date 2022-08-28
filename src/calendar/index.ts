@@ -28,7 +28,6 @@ class Calendar implements ICalendar {
     public days: IDay[];
     public selectedDate: Date;
     public range: Date[] = [];
-    private _counter: number = 0;
 
     constructor(date: Date = new Date()) {
         this.currentDate = new Date();
@@ -44,7 +43,6 @@ class Calendar implements ICalendar {
         const _currentMonthDayCount: number = this.daysInMonth(month + 1, year);
         const _prevMonthDayCount: number = this.daysInMonth(month, year);
         const array: IDay[] = [];
-        // console.log(this);
 
         if (_firstDayOfWeek > 0) {
             let p = _prevMonthDayCount - _firstDayOfWeek + 1,
@@ -163,16 +161,15 @@ class Calendar implements ICalendar {
 
     private createRange(selectedRange: Date) {
         this.range = [this.selectedDate];
-        if (this._counter % 2 === 0) {
+        if (!this.range[1]) {
             this.range.push(selectedRange);
         } else {
-            this.range.push(selectedRange);
+            this.range = [this.selectedDate];
         }
 
         this.range = this.range?.sort(
             (a: Date, b: Date) => a.getTime() - b.getTime()
         );
-        this._counter++;
     }
 }
 class Day {
