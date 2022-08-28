@@ -1,9 +1,10 @@
 # Maintainers Wanted
 
-This project is intended to be consumed for all of type java script projects.
+This project is intended to be consumed for React project based on calendar-npm package.
+It is easy customizable
 
-[![Build Status](https://github.com/Gagik-arch/calendar-npm)](https://github.com/Gagik-arch/calendar-npm)
-[![npm version](https://www.npmjs.com/package/calendar-npm)](https://www.npmjs.com/package/calendar-npm)
+[![Build Status](https://github.com/Gagik-arch/react-calendar-npm)](https://github.com/Gagik-arch/react-calendar-npm)
+[![npm version](https://github.com/Gagik-arch/react-calendar-npm)](https://github.com/Gagik-arch/react-calendar-npm)
 
 ## Table of contents
 
@@ -18,13 +19,13 @@ This project is intended to be consumed for all of type java script projects.
 ## Installation
 
 ```sh
-$ npm install calendar-npm
+$ npm install react-calendar-npm
 ```
 
 ## Usage
 
 ```sh
- const calendar = new Calendar()
+
 ```
 
 #### Arguments

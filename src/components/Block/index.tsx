@@ -1,7 +1,7 @@
 import {FC,useState,ReactNode} from "react";
 import s from './block.module.css'
-import { ICalendar } from "../../calendar/interfaces";
 import { IDayRender, INavigationRender } from '../../interfaces'
+import {ICalendar  } from 'calendar-npm'
 import { Icon } from "../../core";
 import { Days } from '../../components'
 

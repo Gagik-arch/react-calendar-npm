@@ -1,13 +1,13 @@
 import { FC,ReactNode } from 'react'
 import s from './days.module.css'
-import { ICalendar,IDay } from '../../calendar/interfaces';
+import { ICalendar,IDay } from 'calendar-npm';
 import { IDayRender } from '../../interfaces';
 
  interface IProps {
     calendar: ICalendar;
     onChange?: Function;
     index: number;
-    renderDays?(options:IDayRender): React.ReactNode;
+    renderDays?(options:IDayRender): ReactNode;
     calendarCounts: number;
     disablePrevNextDates: boolean;
     range?: boolean;
