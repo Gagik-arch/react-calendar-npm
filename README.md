@@ -10,9 +10,7 @@ It is easy customizable
 
 -   [Installation](#installation)
 -   [Usage](#usage)
--   [Arguments](#Arguments)
--   [Methods](#Methods)
--   [Object](#Object)
+-   [Note](#note)
 -   [Built With](#built-with)
 -   [Author](#author)
 
@@ -24,56 +22,25 @@ $ npm install react-calendar-npm
 
 ## Usage
 
-```sh
-
-```
-
-#### Arguments
-
-| Type          | Default value | example                                            |
-| ------------- | ------------- | -------------------------------------------------- |
-| Date {Object} | new Date()    | const calendar = new Calendar(new Date(2022,7,15)) |
-
-#### Methods
-
-| Method      | argument      |
-| ----------- | ------------- |
-| toDate      | Date {Object} |
-| toPrevMonth | none          |
-| toNextMonth | none          |
-| toNextYear  | none          |
-| toPrevYear  | none          |
-
-Example:
-
 ```js
-const calendar = new Calendar();
-const btn = document.getElementByTabName("button")[0];
+import Calendar from "react-calendar-npm";
 
-btn.onclick = () => {
-    // calendar.toDate(new Date(2025,5,16));
-    // calendar.toPrevMonth();
-    // calendar.toNextMonth();
-    // calendar.toNextYear();
-    // calendar.toPrevYear();
-};
+<Calendar
+    onChange={(e) => {}} // returned date when calendar state is changed
+    date={new Date()} // initial date
+    containerClassName={className} // className for calendar container
+    renderWeekDays={JSX} // override default styles for weekdays
+    renderNavigation={JSX} // override default styles for navigation
+    renderDays={JSX} // override default styles for days
+    calendarCounts={1} // calendar count for render
+    range={false} // range for calendar two dates
+    disablePrevNextDates={true} //  disable or enable calendar previous and next month button events
+/>;
 ```
 
-```ts
-import Calendar, { ICalendar, IDay } from "calendar-npm";
+## Note
 
-const calendar: ICalendar = new Calendar();
-```
-
-#### Object
-
-| keys         | values        |
-| ------------ | ------------- |
-| currentDate  | Date {Object} |
-| selectedDate | Date {Object} |
-| months       | [string]      |
-| weekDays     | [string]      |
-| days         | Day{Object}   |
+Documentation commeing soon
 
 ## Built With
 
@@ -81,4 +48,4 @@ const calendar: ICalendar = new Calendar();
 
 ## Author
 
--   **Gagik** - _Initial work_ - [gagik-arch](https://github.com/Gagik-arch/calendar-npm)
+-   **Gagik** - _Initial work_ - [gagik-arch](https://github.com/Gagik-arch/react-calendar-npm)
