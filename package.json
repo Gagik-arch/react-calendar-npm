@@ -7,7 +7,6 @@
     "react calendar"
   ],
   "dependencies": {
-    "@types/jest": "^27.5.2",
     "@types/node": "^16.11.51",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
@@ -26,8 +25,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
