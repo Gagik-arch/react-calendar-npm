@@ -1,46 +1,83 @@
-# Getting Started with Create React App
+# Maintainers Wanted
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is intended to be consumed for all of type java script projects.
 
-## Available Scripts
+[![Build Status](https://github.com/Gagik-arch/calendar-npm)](https://github.com/Gagik-arch/calendar-npm)
+[![npm version](https://www.npmjs.com/package/calendar-npm)](https://www.npmjs.com/package/calendar-npm)
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Arguments](#Arguments)
+-   [Methods](#Methods)
+-   [Object](#Object)
+-   [Built With](#built-with)
+-   [Author](#author)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```sh
+$ npm install calendar-npm
+```
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+ const calendar = new Calendar()
+```
 
-### `npm run build`
+#### Arguments
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Type          | Default value | example                                            |
+| ------------- | ------------- | -------------------------------------------------- |
+| Date {Object} | new Date()    | const calendar = new Calendar(new Date(2022,7,15)) |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Methods
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Method      | argument      |
+| ----------- | ------------- |
+| toDate      | Date {Object} |
+| toPrevMonth | none          |
+| toNextMonth | none          |
+| toNextYear  | none          |
+| toPrevYear  | none          |
 
-### `npm run eject`
+Example:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```js
+const calendar = new Calendar();
+const btn = document.getElementByTabName("button")[0];
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+btn.onclick = () => {
+    // calendar.toDate(new Date(2025,5,16));
+    // calendar.toPrevMonth();
+    // calendar.toNextMonth();
+    // calendar.toNextYear();
+    // calendar.toPrevYear();
+};
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```ts
+import Calendar, { ICalendar, IDay } from "calendar-npm";
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+const calendar: ICalendar = new Calendar();
+```
 
-## Learn More
+#### Object
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| keys         | values        |
+| ------------ | ------------- |
+| currentDate  | Date {Object} |
+| selectedDate | Date {Object} |
+| months       | [string]      |
+| weekDays     | [string]      |
+| days         | Day{Object}   |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Built With
+
+-   Gagik-arch
+
+## Author
+
+-   **Gagik** - _Initial work_ - [gagik-arch](https://github.com/Gagik-arch/calendar-npm)

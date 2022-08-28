@@ -12,6 +12,7 @@
     outline: none;
     transition: all 260ms ease;
     padding: 6px 16px;
+    color: rgba(0, 0, 0, 0.8);
 }
 .selected-day {
     background-color: #10b981;
@@ -52,4 +53,7 @@
 .prev-month,
 .next-month {
     color: #cbd5e1;
+}
+.nowDay {
+    font-weight: 600;
 }

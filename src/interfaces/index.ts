@@ -1,4 +1,4 @@
-import { DayI } from "calendar-npm";
+import { IDay } from "calendar-npm";
 export interface INavigationRender {
     selectedDate: Date;
     currentDate: Date;
@@ -6,7 +6,7 @@ export interface INavigationRender {
     weekDays: string[];
     events: Events;
 }
-export interface IDayRender extends DayI {
+export interface IDayRender extends IDay {
     onClick(): void;
     defaultStyles: string;
     key: number;

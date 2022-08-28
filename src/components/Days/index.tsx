@@ -22,7 +22,6 @@ export const Days: FC<IProps> = ({ calendar,
     renderDays
 }) => {
     const onClick = (day: IDay) => {
-        console.log(day)
                    calendar.toDate(day.date, calendarCounts === 1 ? day.date :undefined)
                                 onChange && onChange()
     }
@@ -31,20 +30,19 @@ export const Days: FC<IProps> = ({ calendar,
         >
             {
                 calendar?.days?.map((day, i) => {
-                    // if (renderDays) { 
-                    //     return renderDays( {
-                    //         ...day,
-                    //         onClick: () => onClick(day),
-                    //         key:day.date.getTime(),
-                    //         defaultStyles: [s.day,
-                    //         s[day.status],
-                    //         range && calendarCounts > 1 ? s[day.status === 'selected-day' ? `selected_day_${index + 1}` : ''] : '',
-                    //         range ? rangeSelectionLogic(index, day.date, calendar, calendarCounts) : '',
-                    //         range ? rangeSelectedRangeStyles(calendar, day) : ''
-                    //         ].join(' ')
-                    //     })
-                    // }
-
+                    if (renderDays) { 
+                        return renderDays( {
+                            ...day,
+                            onClick: () => onClick(day),
+                            key:day.date.getTime(),
+                            defaultStyles: [s.day,
+                            s[day.status],
+                            range && calendarCounts > 1 ? s[day.status === 'selected-day' ? `selected_day_${index + 1}` : ''] : '',
+                            range ? rangeSelectionLogic(index, day.date, calendar, calendarCounts) : '',
+                            range ? rangeSelectedRangeStyles(calendar, day) : ''
+                            ].join(' ')
+                        })
+                    }
                     return (
                         <button key={i}
                             disabled={disablePrevNextDates &&
@@ -52,10 +50,12 @@ export const Days: FC<IProps> = ({ calendar,
                             }
                             data-index={i}
                             className={[s.day,
-                            s[day.status],
+                                s[day.status],
                             range && calendarCounts > 1 ? s[day.status === 'selected-day' ? `selected_day_${index + 1}` : ''] : '',
                             range  ? rangeSelectionLogic(index, day.date, calendar, calendarCounts) : '',
-                            range ? rangeSelectedRangeStyles(calendar, day) : ''
+                                range ? rangeSelectedRangeStyles(calendar, day) : '',
+                            calendar.currentDate.setHours(0, 0, 0, 0) === day.date.getTime() ? s.nowDay : '',
+
                             ].join(' ')}
                             onClick={()=>onClick(day)}
                         >

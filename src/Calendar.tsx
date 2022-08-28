@@ -1,7 +1,9 @@
 import { ReactNode, useMemo, useLayoutEffect, FC } from "react";
 import s from "./calendar.module.css";
 import { Block } from "./components";
-import C, { ICalendar } from './calendar/index'
+// import C from './calendar/index'
+// import { ICalendar } from "./calendar/interfaces";
+import C, {ICalendar} from 'calendar-npm'
 import { IDayRender, INavigationRender} from './interfaces'
 
 interface IProps {
@@ -34,7 +36,7 @@ const Calendar: FC<IProps> = ({
         return Array.from({ length: calendarCounts }, (_, k) => {
             const _dates: Date = new Date(
                 now.getFullYear(),
-                now.getMonth() +( 2),
+                now.getMonth() +k,
                 now.getDate()
             );
             return new C(_dates);
@@ -56,7 +58,7 @@ const Calendar: FC<IProps> = ({
                 gridTemplateColumns: `repeat(${calendarCounts}, auto)`,
             }}
         >
-            {/* {calendars?.map((calendar, index) => {
+            {calendars?.map((calendar, index) => {
                 return (
                     <Block
                         key={index}
@@ -72,7 +74,7 @@ const Calendar: FC<IProps> = ({
                         disablePrevNextDates={disablePrevNextDates}
                     />
                 );
-            })} */}
+            })}
         </div>
     );
 };
