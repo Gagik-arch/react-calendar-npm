@@ -1,5 +1,4 @@
 import {FC,useState,ReactNode} from "react";
-import s from './block.module.css'
 import { IDayRender, INavigationRender } from '../../interfaces'
 import {ICalendar  } from 'calendar-npm'
 import { Icon } from "../../core";
@@ -65,7 +64,7 @@ export const Block: FC<IProps> = ({
                    },
                })
            ) : (
-               <div className={s.navigation}>
+               <div className={'navigation'}>
                    <button
                        onClick={() => {
                            calendar?.toPrevYear();
@@ -106,10 +105,10 @@ export const Block: FC<IProps> = ({
             {renderWeekDays ? (
                 renderWeekDays(calendar.weekDays)
             ) : (
-                <div className={s.weeks}>
+                <div className={'weeks'}>
                     {calendar?.weekDays?.map((day, i) => {
                         return (
-                            <div key={i} className={[s.weekday].join(" ")}>
+                            <div key={i} className={['weekday'].join(" ")}>
                                 {day.substring(0, 1)}
                             </div>
                         );

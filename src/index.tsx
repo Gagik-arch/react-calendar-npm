@@ -1,5 +1,5 @@
 import { ReactNode, useMemo, useLayoutEffect, FC } from "react";
-import s from "./calendar.module.css";
+import  "./index.css";
 import { Block } from "./components";
 import C,{ ICalendar } from "calendar-npm";
 import { IDayRender, INavigationRender } from './interfaces'
@@ -51,7 +51,7 @@ const Calendar: FC<IProps> = ({
 
     return (
         <div
-            className={[s.container, containerClassName].join(" ")}
+            className={['container', containerClassName].join(" ")}
             style={{
                 gridTemplateColumns: `repeat(${calendarCounts}, auto)`,
             }}
