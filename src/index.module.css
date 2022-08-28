@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    grid-gap: 0 20px;
+    user-select: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+svg {
+    pointer-events: none;
+}

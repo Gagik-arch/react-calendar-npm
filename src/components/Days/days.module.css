@@ -1,15 +1,3 @@
-.container {
-    display: flex;
-    grid-gap: 0 20px;
-    user-select: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-y: auto;
-}
-
-svg {
-    pointer-events: none;
-}
 .days {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto;
@@ -68,43 +56,4 @@ svg {
 }
 .nowDay {
     font-weight: 600;
-}
-.weekday {
-    padding: 6px 16px;
-}
-
-.navigation {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.navigation > button {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-}
-
-.weeks {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
-    grid-gap: 4px 0;
-}
-
-.weeks {
-    margin-bottom: 10px;
-    color: #94a3b8;
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.weekday {
-    text-align: center;
-}
-
-.weekday:first-child {
-    color: #f87171;
 }
