@@ -1,11 +1,11 @@
-import {FC,useState,ReactNode} from "react";
-import s from './block.module.css'
+import React,{FC,useState,ReactNode} from "react";
 import { IDayRender, INavigationRender } from '../../interfaces'
 import {ICalendar  } from 'calendar-npm'
-import { Icon } from "../../core";
+
 import { Days } from '../../components'
 
- interface IProps {
+
+interface IProps {
     calendar: ICalendar;
     onChange?: Function;
     index: number;
@@ -65,14 +65,14 @@ export const Block: FC<IProps> = ({
                    },
                })
            ) : (
-               <div className={s.navigation}>
+               <div className={'navigation'}>
                    <button
                        onClick={() => {
                            calendar?.toPrevYear();
                            onChangeCalendar();
                        }}
                    >
-                       <Icon type={"ChevronsLeft"} />
+                    {'<<'}
                    </button>
                    <button
                        onClick={() => {
@@ -80,7 +80,7 @@ export const Block: FC<IProps> = ({
                             onChangeCalendar();
                         }}
                     >
-                            <Icon type={"ChevronLeft"} />
+                            { '<'}
                     </button>
                     {calendar?.selectedDate?.toString().split(" ")[3] +
                         "  " +
@@ -91,7 +91,7 @@ export const Block: FC<IProps> = ({
                             onChangeCalendar();
                         }}
                     >
-                        <Icon type={"ChevronRight"}  />
+                     {'>'}
                     </button>
                     <button
                         onClick={() => {
@@ -99,17 +99,17 @@ export const Block: FC<IProps> = ({
                             onChangeCalendar();
                         }}
                     >
-                        <Icon type={"ChevronsRight"} />
+                            { '>>'}
                     </button>
                 </div>
             )}
             {renderWeekDays ? (
                 renderWeekDays(calendar.weekDays)
             ) : (
-                <div className={s.weeks}>
+                <div className={'weeks'}>
                     {calendar?.weekDays?.map((day, i) => {
                         return (
-                            <div key={i} className={[s.weekday].join(" ")}>
+                            <div key={i} className={['weekday'].join(" ")}>
                                 {day.substring(0, 1)}
                             </div>
                         );

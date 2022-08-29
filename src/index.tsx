@@ -1,5 +1,5 @@
-import { ReactNode, useMemo, useLayoutEffect, FC } from "react";
-import s from "./index.module.css";
+import React,{ ReactNode, useMemo, useLayoutEffect, FC } from "react";
+import  "./index.css";
 import { Block } from "./components";
 import C,{ ICalendar } from "calendar-npm";
 import { IDayRender, INavigationRender } from './interfaces'
@@ -27,7 +27,6 @@ const Calendar: FC<IProps> = ({
     range = false,
     disablePrevNextDates = true,
 }): JSX.Element => {
-
     const calendars: ICalendar[] = useMemo(() => {
         const now: Date = new Date(date);
 
@@ -39,7 +38,7 @@ const Calendar: FC<IProps> = ({
             );
             return new C(_dates);
         });
-    }, []);
+    }, [calendarCounts,date]);
 
     useLayoutEffect(() => {
         onChange(calendars.map((e) => e.selectedDate));
@@ -51,7 +50,7 @@ const Calendar: FC<IProps> = ({
 
     return (
         <div
-            className={[s.container, containerClassName].join(" ")}
+            className={['container', containerClassName].join(" ")}
             style={{
                 gridTemplateColumns: `repeat(${calendarCounts}, auto)`,
             }}

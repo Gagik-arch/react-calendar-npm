@@ -1,5 +1,2 @@
 /src
-/lib/index.js
 /node_modules
-.babelrc
-webpack.config.js
